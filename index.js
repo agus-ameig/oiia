@@ -20,10 +20,10 @@ background.addEventListener('load', () => {
   pattern = ctx.createPattern(background, "repeat");
 })
 
-background.src = `/assets/ground_stone1.png`
+background.src = `./assets/ground_stone1.png`
 
 let i = 0
 setInterval(() => {
-  image.src = `/assets/warrior_armed_idle_${i}.png`
+  image.src = `./assets/warrior_armed_idle_${i}.png`
   i = (i + 1) % 16;
 }, 100);
