@@ -45,10 +45,10 @@ export class Enemy {
     context.drawImage(this.sprite,
     ...this.getSpriteFrame(),
     this.x, this.y, this.width, this.height);
-    context.save();
-    context.fillStyle = "#ffffff";
-    context.fillRect(this.x + this.width/2, this.y + this.height/2, 10, 10);
-    context.restore();
+    // context.save();
+    // context.fillStyle = "#ffffff";
+    // context.fillRect(this.x + this.width/2, this.y + this.height/2, 10, 10);
+    // context.restore();
   }
 
 	getSpriteFrame(): [number, number, number, number] {
@@ -139,10 +139,10 @@ export class EnemyGenerator {
 
   draw(context: CanvasRenderingContext2D) {
     this.enemies.forEach((e) => e.draw(context));
-    context.save();
-    context.fillStyle = "#ffffff";
-    context.fillRect(this.playerX, this.playerY, 10, 10);
-    context.restore();
+    // context.save();
+    // context.fillStyle = "#ffffff";
+    // context.fillRect(this.playerX, this.playerY, 10, 10);
+    // context.restore();
   }
 
   performAttack(atkDamage: number, x: number, y: number, orientation: number) {
