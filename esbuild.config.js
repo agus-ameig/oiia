@@ -81,6 +81,45 @@ if (isServe) {
 } else if (isBuild) {
 	await esbuild.build({
 		...commonConfig,
+		plugins: [
+			{
+				name: "html-plugin",
+				setup(build) {
+					build.onEnd(() => {
+						writeFileSync("./dist/index.html", template);
+					});
+				},
+			},
+			{
+				name: "assets-plugin",
+				setup(build) {
+					build.onEnd(async () => {
+						try {
+							await esbuild.build({
+								entryPoints: ["assets/**/*"],
+								outdir: "dist/assets",
+                assetNames: "[dir]/[name]",
+								loader: {
+									".png": "file",
+									".jpg": "file",
+									".gif": "file",
+									".svg": "file",
+									".mp3": "file",
+									".wav": "file",
+									".ogg": "file",
+								},
+								allowOverwrite: true,
+								metafile: false,
+                keepNames: true,
+							});
+						} catch (e) {
+							console.error("Error copying assets:", e);
+						}
+					});
+				},
+			},
+		],
+    sourcemap: false,
 		minify: true,
 	});
 	console.log("Build complete");
