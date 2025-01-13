@@ -72,8 +72,8 @@
     .d-pad-container {
       display: none;
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: 200px;
+      left: 200px;
       width: 150px;
       height: 150px;
       touch-action: none;
@@ -155,8 +155,8 @@
     .attack-button-container {
       display: none;
       position: fixed;
-      bottom: 40px;
-      right: 40px;
+      bottom: 200px;
+      right: 100px;
       touch-action: none;
       user-select: none;
       z-index: 1000;
@@ -180,9 +180,13 @@
     @media (pointer: coarse) {
       .attack-button-container {
         display: block;
+        user-select: none;
+        transform: scale(300%);
       }
       .d-pad-container {
         display: block;
+        user-select: none;
+        transform: scale(200%);
       }
     }
   </style>
