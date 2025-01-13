@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      image-rendering: pixelated;
+    }
+
+    body {
+      background: url('./assets/ground_stone1.png');
+    }
+
+    #my-canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+      border: 1px solid black;
+    }
+
+    img {
+      display: none;
+    }
+
+    .main-menu {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main-menu>h1 {
+      font-size: 200px;
+      color: white;
+    }
+
+    .main-menu>h4 {
+      font-size: 50px;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    .main-menu>button {
+      padding: 48px;
+      font-size: 48px;
+      font-family: serif;
+      text-transform: uppercase;
+      border-radius: 10px;
+      border: 4px solid red;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      cursor: pointer;
+    }
+    .main-menu>footer {
+      color: white;
+      font-size: 24;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-menu">
+    <h1>O I I A</h1>
+    <button id="play-button">Jugar</button>
+    <h4 id="highscore"></h4>
+    <footer>
+      Controles: ←↑↓→ movimiento Ⓐ atacar
+      <audio controls autoplay loop>
+        <source src="./assets/oiiaoiia.mp3" type="audio/mp3">
+      </audio>
+    </footer>
+  </div>
+  <canvas id="my-canvas"></canvas>
+  <img id="warrior-armed-walk" src="./assets/warrior_armed_walk.png">
+  <img id="warrior-armed-idle" src="./assets/warrior_armed_idle.png">
+  <img id="warrior-armed-attack" src="./assets/warrior_armed_attack.png">
+  <img id="backdrop" src="./assets/ground_stone1.png">
+  <img id="map-tiles" src="./assets/map_tiles.png">
+  <img id="enemy" src="./assets/oiia_cat.png">
+  <audio id="sword" src="./assets/sword-slash.mp3"></audio>
+  <script type="module" src="./index.js"></script>
+  <script>
+    new EventSource('/esbuild').addEventListener('change', () => location.reload());
+  </script>
+</body>
+
+</html>
